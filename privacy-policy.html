@@ -114,40 +114,18 @@
             fill: #2563EB;
         }
 
-        .faq-item {
-            margin-bottom: 20px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .faq-question {
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }
-
-        .faq-answer {
-            color: #666;
-        }
-
-        .contact-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .highlight-box {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 15px;
+            margin: 20px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .contact-box::before {
+        .highlight-box::before {
             content: '';
             position: absolute;
             top: 0;
@@ -158,55 +136,85 @@
             opacity: 0.1;
         }
 
-        .contact-box * {
+        .highlight-box * {
             position: relative;
             z-index: 1;
         }
 
-        .email-link {
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 15px 30px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
-            display: inline-block;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+        .highlight-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
         }
 
-        .email-link:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .feature-card {
+        .privacy-feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 15px 0;
+            padding: 15px;
             background: white;
-            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
         }
 
-        .feature-card:hover {
-            transform: translateY(-3px);
+        .privacy-feature:hover {
+            transform: translateX(5px);
         }
 
-        .footer {
+        .privacy-feature .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .privacy-feature .feature-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .privacy-feature-content h4 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .privacy-feature-content p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .last-updated {
             text-align: center;
             padding: 20px;
             color: #666;
             font-size: 0.9rem;
+            border-top: 1px solid #e9ecef;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
         }
 
         @media (max-width: 768px) {
@@ -230,6 +238,11 @@
             .section {
                 padding: 20px;
             }
+
+            .privacy-feature {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -243,27 +256,166 @@
                     <path d="M316.141 320.782C308.956 324.497 308.925 334.763 316.088 338.521L511.277 440.929C514.209 442.467 517.713 442.454 520.634 440.894L712.391 338.486C719.467 334.707 719.436 324.552 712.337 320.816L520.581 219.899C517.688 218.377 514.234 218.364 511.331 219.865L316.141 320.782Z" fill="#F2F2F7"/>
                     <path d="M249.714 430.7C249.714 423.318 257.437 418.481 264.079 421.702L505.506 538.814C508.246 540.144 511.443 540.151 514.19 538.835L758.937 421.594C765.575 418.414 773.257 423.253 773.257 430.613V662.264C773.257 666.117 771.044 669.627 767.567 671.287L514.18 792.316C511.439 793.625 508.251 793.617 505.516 792.295L255.36 671.3C251.908 669.63 249.714 666.133 249.714 662.298V619.129C249.714 611.684 257.558 606.85 264.209 610.196L505.479 731.58C508.233 732.965 511.471 733.003 514.257 731.683L695.252 645.896C698.743 644.241 700.969 640.723 700.969 636.859V573.802C700.969 566.655 693.688 561.815 687.098 564.582L514.066 637.227C511.384 638.353 508.346 638.255 505.742 636.961L255.262 512.405C251.863 510.715 249.714 507.247 249.714 503.451V430.7Z" fill="#F2F2F7"/>
                 </svg>
-                <h1 style="margin: 0;">Crate Ledger</h1>
+                <h1 style="margin: 0;">Privacy Policy</h1>
             </div>
-            <p>Your personal wealth tracking companion</p>
+            <p>Your privacy is our top priority</p>
         </div>
 
         <div class="content">
+            <div class="highlight-box">
+                <h3>🔒 Privacy-First Design</h3>
+                <p>Crate Ledger was built from the ground up with your privacy in mind. Your financial data never leaves your device unless you choose to sync with iCloud.</p>
+            </div>
+
             <div class="section">
                 <h2>
                     <svg class="icon" viewBox="0 0 24 24">
-                        <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2M21 9V7L15 1L9 7V9C9 10.1 9.9 11 11 11V16L7.5 15.5C6.1 15.3 5.2 13.9 5.5 12.5L6 10.5H4L3.5 12.5C3 15.1 4.9 17.7 7.5 18L12 18.5L16.5 18C19.1 17.7 21 15.1 20.5 12.5L20 10.5H18L18.5 12.5C18.8 13.9 17.9 15.3 16.5 15.5L13 16V11C14.1 11 15 10.1 15 9M14 22V20H10V22H14Z"/>
+                        <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10.1V11.1C15.4,11.4 16,12 16,12.8V16.2C16,17.1 15.1,18 14.2,18H9.8C8.9,18 8,17.1 8,16.2V12.8C8,12 8.6,11.4 9.2,11.1V10.1C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,10.1V11.1H13.5V10.1C13.5,8.7 12.8,8.2 12,8.2Z"/>
                     </svg>
-                    Privacy Policy
+                    Data Collection
                 </h2>
-                <p>Crate Ledger does not collect, store, or transmit any personal data.</p>
-                <p>All portfolio and asset data is stored locally on your device.</p>
-                <p>We do not use third-party analytics or advertising tools.</p>
+                <p><strong>Crate Ledger collects ZERO personal data.</strong> We believe your financial information should remain completely private and under your control.</p>
+                
+                <div style="margin-top: 20px;">
+                    <div class="privacy-feature">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
+                            </svg>
+                        </div>
+                        <div class="privacy-feature-content">
+                            <h4>No Personal Information</h4>
+                            <p>We don't collect names, emails, addresses, or any identifying information</p>
+                        </div>
+                    </div>
+
+                    <div class="privacy-feature">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
+                            </svg>
+                        </div>
+                        <div class="privacy-feature-content">
+                            <h4>No Financial Data Collection</h4>
+                            <p>Your portfolio holdings, asset values, and financial data stay on your device</p>
+                        </div>
+                    </div>
+
+                    <div class="privacy-feature">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
+                            </svg>
+                        </div>
+                        <div class="privacy-feature-content">
+                            <h4>No Usage Analytics</h4>
+                            <p>We don't track how you use the app or collect behavioral data</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M4,6H2V20A2,2 0 0,0 4,22H18V20H4V6M20,2H8A2,2 0 0,0 6,4V16A2,2 0 0,0 8,18H20A2,2 0 0,0 22,16V4A2,2 0 0,0 20,2M20,16H8V4H20V16Z"/>
+                    </svg>
+                    Data Storage
+                </h2>
+                <p>All your portfolio and asset data is stored locally on your device using iOS's secure data storage mechanisms. This means:</p>
+                <ul>
+                    <li>Your data is encrypted and protected by your device's security</li>
+                    <li>Only you have access to your financial information</li>
+                    <li>Data persists even when offline</li>
+                    <li>No external servers store your information</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M19.35,10.04C18.67,6.59 15.64,4 12,4C9.11,4 6.6,5.64 5.35,8.04C2.34,8.36 0,10.91 0,14A6,6 0 0,0 6,20H19A5,5 0 0,0 24,15C24,12.36 21.95,10.22 19.35,10.04Z"/>
+                    </svg>
+                    iCloud Sync (Optional)
+                </h2>
+                <p>If you choose to enable iCloud sync, your data is backed up to your personal iCloud account:</p>
+                <ul>
+                    <li>Data is encrypted in transit and at rest</li>
+                    <li>Only accessible through your Apple ID</li>
+                    <li>Synced across your Apple devices only</li>
+                    <li>You can disable this feature at any time</li>
+                    <li>We have no access to your iCloud data</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M18.69,19C17.72,20.59 16.22,21.73 14.46,22.27L13.03,18.9C14.23,18.5 15.25,17.71 15.94,16.69L18.69,19M5.31,19L8.06,16.69C8.75,17.71 9.77,18.5 10.97,18.9L9.54,22.27C7.78,21.73 6.28,20.59 5.31,19M12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15M12,2L14.39,5.42C13.65,5.15 12.84,5 12,5C11.16,5 10.35,5.15 9.61,5.42L12,2M3.34,7L7.5,6.65C6.9,7.16 6.36,7.78 5.94,8.5C5.5,9.24 5.25,10 5.11,10.79L3.34,7M3.36,17L5.13,13.21C5.27,14 5.53,14.78 5.95,15.5C6.37,16.24 6.91,16.86 7.5,17.37L3.36,17M20.66,7L18.89,10.79C18.75,10 18.5,9.24 18.06,8.5C17.64,7.78 17.1,7.15 16.5,6.64L20.66,7M20.64,17L16.5,17.36C17.09,16.85 17.63,16.23 18.05,15.5C18.47,14.77 18.73,14 18.87,13.21L20.64,17Z"/>
+                    </svg>
+                    Third-Party Services
+                </h2>
+                <p>For price updates, Crate Ledger may fetch current market prices from financial data providers. However:</p>
+                <ul>
+                    <li>No personal information is sent with price requests</li>
+                    <li>Requests are anonymous and don't include your holdings</li>
+                    <li>Price data is fetched generically (e.g., "Bitcoin price") without context</li>
+                    <li>The app works completely offline if you prefer manual price entry</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4Z"/>
+                    </svg>
+                    No Tracking or Analytics
+                </h2>
+                <p>Crate Ledger contains:</p>
+                <ul>
+                    <li>No advertising networks or trackers</li>
+                    <li>No analytics or usage monitoring</li>
+                    <li>No crash reporting that includes personal data</li>
+                    <li>No behavioral tracking or profiling</li>
+                    <li>No social media integrations</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M9,12L11,14L15,10L13,8L11,10L9,8M20,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V8L20,3M19,19H5V5H17V9H19V19Z"/>
+                    </svg>
+                    Your Rights
+                </h2>
+                <p>Since we don't collect your data, you automatically have:</p>
+                <ul>
+                    <li>Complete control over your financial information</li>
+                    <li>The right to use the app without sharing any personal data</li>
+                    <li>Freedom to export or delete your data at any time</li>
+                    <li>No need to request data deletion - it's already private</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/>
+                    </svg>
+                    Contact Us
+                </h2>
+                <p>If you have any questions about this privacy policy or our privacy practices, please contact us at:</p>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="mailto:crateledger.app@gmail.com" style="color: #2563EB; text-decoration: none; font-weight: 600;">
+                        📧 crateledger.app@gmail.com
+                    </a>
+                </div>
             </div>
         </div>
 
-        <div class="footer">
-            <p>© 2025 Crate Ledger. Made with ❤️ for better wealth tracking.</p>
+        <div class="last-updated">
+            <p><strong>Last updated:</strong> January 2025</p>
+            <p>This privacy policy may be updated from time to time. We will notify users of any material changes.</p>
         </div>
     </div>
 </body>
